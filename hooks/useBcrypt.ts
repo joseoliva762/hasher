@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Bcrypted } from "@models/bcrypt.model";
 import AppContext from "@contexts/AppContext";
 import { AES, enc } from 'crypto-js';
@@ -10,27 +10,28 @@ const useBcrypt = (): Bcrypted => {
         state, 
         setSalt, 
         setCrypted, 
-        setText 
+        setDecoded 
     } = useContext(AppContext);
 
     const encode = (): void => {
-        const { text, salt } = state;
-        const hash = AES.encrypt(text, salt).toString();
+        const { decoded, salt } = state;
+        const hash = AES.encrypt(`${decoded}`, salt).toString();
         setCrypted(hash);
     }
 
     const decode = (): void => {
         const { crypted, salt } = state;
         const text = AES.decrypt(crypted, salt).toString(enc.Utf8);
-        setText(text);
+        setDecoded(text);
     }
 
     const generateSalt = (): void => {
         const { saltRounds } = state;
-        console.log(saltRounds)
         const salt = randomBytes(saltRounds || 16).toString('base64');
+        const canEncode = !!state.salt && !!state.decoded;
+        console.log(state)
         setSalt(salt);
-        state.salt && encode();
+        canEncode && encode();
     }
 
     return {

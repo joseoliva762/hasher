@@ -10,16 +10,16 @@ export default function Result() {
     return (
         <>
             <Box>
-                <div className="border-2 border-hasher-gray h-full outline-none p-1 relative resize-none rounded w-full hover:border-hasher-blue hover: cursor-pointer">
-                    <p className="font-bold h-full overflow-auto text-ellipsis w-full">
+                <div className="bg-white border-2 border-hasher-gray h-full outline-none p-1 relative resize-none rounded w-full hover:border-hasher-blue hover: cursor-pointer">
+                    <p className="font-bold h-full  overflow-auto w-full">
                         {state.crypted}
                     </p>
-                    <button 
-                        className="absolute bg-transparent font-bold inset-0 h-full text-base text-transparent w-full hover:bg-hasher-blue hover:text-white active:brightness-90"
-                        onClick={() => handleCopy(state.crypted)}>
-                        Copy!
-                    </button>
                 </div>
+                <button 
+                    className="bg-hasher-blue font-bold h-14 p-1 rounded text-base text-white w-full hover:opacity-80 active:brightness-90"
+                    onClick={() => handleCopy(state.crypted)}>
+                    Copy!
+                </button>
             </Box>
         </>
     );

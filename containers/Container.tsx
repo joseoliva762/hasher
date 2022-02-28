@@ -7,7 +7,7 @@ interface ContainerParams {
 export default function Container({ children }: ContainerParams) {
     return (
         <>
-            <main className="bg-white flex flex-col gap-1 h-screen items-center justify-start p-1 w-full">
+            <main className="flex flex-col gap-1 h-screen items-center justify-start p-1 w-full md:max-h-hasher-container md:max-w-md">
                 {children}
             </main>
         </>

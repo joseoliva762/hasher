@@ -12,6 +12,9 @@ module.exports = {
       },
       maxWidth: {
         'hasher-elipsis': '240px',
+      },
+      maxHeight: {
+        'hasher-container': '812px',
       }
     },
   },

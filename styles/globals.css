@@ -19,6 +19,7 @@ a {
   box-sizing: border-box;
 }
 ::-webkit-scrollbar {
+  height: 8px;
   width: 4px;
 }
 ::-webkit-scrollbar-thumb {
@@ -28,4 +29,3 @@ a {
   background: #000;
   color: #fff;
 }
-

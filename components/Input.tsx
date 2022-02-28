@@ -1,16 +1,18 @@
-import { ChangeEvent, useContext } from "react";
+import { ChangeEvent, useContext, useEffect } from "react";
 import AppContext from "@contexts/AppContext";
 import Box from "@components/Box";
 import useBcrypt from "@hooks/useBcrypt";
 
 export default function Input() {
-    const { state, setText } = useContext(AppContext);
-    const { crypted, encode } = useBcrypt();
+    const { state, setDecoded } = useContext(AppContext);
+    const { encode } = useBcrypt();
+
+    useEffect(encode, [state.decoded]);
 
     const handleText = ({ target }: ChangeEvent<HTMLTextAreaElement>) => {
-        const { value: text } = target;
-        setText(text);
-        encode();
+        const { value: decoded } = target;
+        setDecoded(`${decoded}`);
+        console.log(state)
     }
 
     return (
