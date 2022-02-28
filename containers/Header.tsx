@@ -58,7 +58,7 @@ export default function Header() {
                                         }>
                                         <Link href={'/'}>
                                             <p className="flex h-full items-center justify-center text-center w-full">
-                                                Crypt
+                                                Encode
                                             </p>
                                         </Link> 
                                     </div>
@@ -73,9 +73,9 @@ export default function Header() {
                                             : '' 
                                             } flex gap-2 h-14 rounded items-center w-full px-4 py-2 text-md font-bold`
                                         }>
-                                        <Link href={'/decrypt'}>
+                                        <Link href={'/decode'}>
                                             <p className="flex h-full items-center justify-center text-center w-full">
-                                                Decrypt
+                                                Decode
                                             </p>
                                         </Link> 
                                    </div> 

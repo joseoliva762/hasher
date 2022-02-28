@@ -23,7 +23,7 @@ export default function Input() {
                     name="text" 
                     id="text" 
                     placeholder="Type here..."
-                    className="border-2 border-hasher-gray h-full outline-none p-1 resize-none rounded w-full focus:border-hasher-blue"
+                    className="border-2 border-hasher-gray h-full outline-none p-1 resize-none rounded w-full focus:border-hasher-blue hover:border-hasher-blue"
                     onChange={handleText}
                     ref={(textarea) => textRef = textarea as HTMLTextAreaElement}
                 />

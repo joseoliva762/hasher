@@ -3,11 +3,10 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 
 import Container from '@containers/Container';
-import Title from '@components/Title';
 import Salt from '@components/Salt';
 import Input from '@components/Input';
 import AppContext from '@contexts/AppContext';
-import SubTitle from '@components/Subtitle';
+import Subtitle from '@components/Subtitle';
 import Result from '@components/Result';
 
 const Home: NextPage = () => {
@@ -17,14 +16,17 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Hasher - Home</title>
+        <title>Hasher - Encode</title>
       </Head>
-      <Container> 
+      <Container>
+        <div className="flex flex-col gap-1 items-center justify-start p-2 w-full">
+          <Subtitle subtitle='Encode' classname="px-1 w-full" />
+        </div>
         <Salt />
         {!!canEncode && <>
-          <SubTitle subtitle='Type to encode' classname='mt-4 px-2 w-full' />
+          <Subtitle subtitle='Type to encode' classname='mt-4 px-2 w-full' />
           <Input />
-          <SubTitle subtitle='Encoded' classname='mt-4 px-2 w-full' />
+          <Subtitle subtitle='Encoded' classname='mt-4 px-2 w-full' />
           <Result show='crypted' />        
         </>}
       </Container>

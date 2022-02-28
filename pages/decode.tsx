@@ -8,21 +8,21 @@ import PasteSalt from "@components/PasteSalt";
 import ToDecode from "@components/ToDecode";
 import Result from "@components/Result";
 
-const Decrypt: NextPage = () => {
+const Decode: NextPage = () => {
     const { state } = useContext(AppContext);
 
     return (
       <>
         <Head>
-          <title>Hasher - Decrypt</title>
+          <title>Hasher - Decode</title>
         </Head>
         <Container>
             <div className="flex flex-col gap-1 items-center justify-start p-2 w-full">
-              <Subtitle subtitle='Decrypt' classname="px-1 w-full" />
+              <Subtitle subtitle='Decode' classname="px-1 w-full" />
               <PasteSalt />
             </div>
             {!!state.salt && <>
-              <div className="flex flex-col gap-1 items-center justify-start p-2 w-full">
+              <div className="flex flex-col gap-1 items-center justify-start p-1 w-full">
                   <Subtitle subtitle='Type to decode' classname="px-1 w-full" />
                   <ToDecode />
               </div>
@@ -35,4 +35,4 @@ const Decrypt: NextPage = () => {
 }
   
 
-export default Decrypt;
+export default Decode;
