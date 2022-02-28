@@ -26,12 +26,11 @@ const useBcrypt = (): Bcrypted => {
     }
 
     const generateSalt = (): void => {
+        const canGenerateSalt = !state.decoded;
+        if (!canGenerateSalt) return;
         const { saltRounds } = state;
         const salt = randomBytes(saltRounds || 16).toString('base64');
-        const canEncode = !!state.salt && !!state.decoded;
-        console.log(state)
         setSalt(salt);
-        canEncode && encode();
     }
 
     return {
