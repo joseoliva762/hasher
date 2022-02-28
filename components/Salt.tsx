@@ -27,7 +27,6 @@ export default function Salt() {
 
     const handleSaltRounds = ({ target }: ChangeEvent<HTMLInputElement>) => {
         let rounds = parseInt(target.value) || 16;
-        console.log(rounds)
         if (rounds > MAXSALT) {
             rounds = MAXSALT
             inputRef.value = rounds.toString();
