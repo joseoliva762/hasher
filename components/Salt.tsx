@@ -59,7 +59,7 @@ export default function Salt() {
                         />
                     </div>
                     <button 
-                        className="bg-hasher-blue cursor-pointer font-bold text-base h-full rounded text-white w-40 hover:opacity-80 disabled:cursor-not-allowed active:brightness-90"
+                        className="bg-hasher-blue cursor-pointer font-bold text-base h-full rounded text-white w-40 z-0 hover:opacity-80 disabled:cursor-not-allowed active:brightness-90"
                         disabled={!state.saltRounds}
                         onClick={generateSalt}>
                         Salt
@@ -71,7 +71,7 @@ export default function Salt() {
                             <p className="cursor-default font-bold text-hasher-gray text-base">Salt</p>
                             <p className="font-bold max-w-hasher-elipsis overflow-hidden text-black text-base text-ellipsis w-full">{state.salt}</p>
                             <button 
-                                className="absolute bg-transparent font-bold inset-0 h-full text-base text-transparent w-full hover:bg-hasher-blue hover:text-white active:brightness-90"
+                                className="absolute bg-transparent font-bold inset-0 h-full outline-none text-base text-transparent w-full hover:bg-hasher-blue hover:text-white active:brightness-90"
                                 onClick={() => handleCopy(state.salt)}>
                                 Copy!
                             </button>

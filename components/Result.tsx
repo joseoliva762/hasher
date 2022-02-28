@@ -16,7 +16,7 @@ export default function Result() {
                     </p>
                 </div>
                 <button 
-                    className="bg-hasher-blue font-bold h-full max-h-14 p-1 rounded text-base text-white w-full hover:opacity-80 active:brightness-90"
+                    className="bg-hasher-blue font-bold h-full max-h-14 outline-none p-1 rounded text-base text-white w-full hover:opacity-80 active:brightness-90"
                     onClick={() => handleCopy(state.crypted)}>
                     Copy!
                 </button>

@@ -8,7 +8,8 @@ module.exports = {
     extend: {
       colors: {
         'hasher-blue': '#0070f3',
-        'hasher-gray': '#bbbbbb'
+        'hasher-gray': '#bbbbbb',
+        'hasher-hover': '#dadada'
       },
       maxWidth: {
         'hasher-elipsis': '240px',

@@ -12,7 +12,7 @@
         "containers/*"
       ],
       "@icons/*": [
-        "public/icons/*"
+        "icons/*"
       ],
       "@logos/*": [
         "public/logos/*"

@@ -16,7 +16,7 @@ const useBcrypt = (): Bcrypted => {
     const encode = (): void => {
         const { decoded, salt } = state;
         const hash = AES.encrypt(`${decoded}`, salt).toString();
-        setCrypted(hash);
+        setCrypted(decoded ? hash : '');
     }
 
     const decode = (): void => {

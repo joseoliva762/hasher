@@ -18,7 +18,6 @@ const Home: NextPage = () => {
         <title>Hasher - Home</title>
       </Head>
       <Container> 
-        <Title title='Hasher' classname='px-2 text-left w-full' />
         <Salt />
         {state.salt && <>
           <SubTitle subtitle='Type to encode' classname='mt-4 px-2 w-full' />
