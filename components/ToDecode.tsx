@@ -8,6 +8,10 @@ export default function ToDecode() {
     let inputRef!: HTMLInputElement;
 
     useEffect(() => {
+        inputRef.value = state.crypted
+    }, []);
+    
+    useEffect(() => {
         decode();
     }, [state.crypted])
 
