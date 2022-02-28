@@ -63,8 +63,8 @@ export default function Salt() {
                         />
                     </div>
                     <button 
-                        className="bg-hasher-blue cursor-pointer font-bold text-base h-full rounded text-white w-40 z-0 hover:opacity-80 disabled:cursor-not-allowed active:brightness-90"
-                        disabled={!state.saltRounds}
+                        className="bg-hasher-blue cursor-pointer font-bold text-base h-full rounded text-white w-40 z-0 hover:opacity-80 disabled:cursor-not-allowed disabled:opacity-80 active:brightness-90"
+                        disabled={!state.saltRounds || !!state.decoded}
                         onClick={generateSalt}>
                         Salt
                     </button>

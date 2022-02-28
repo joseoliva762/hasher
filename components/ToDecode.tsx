@@ -26,7 +26,7 @@ export default function ToDecode() {
     return (
         <>
             <input 
-                className='border-2 border-hasher-gray h-14 outline-none p-2 rounded w-full active:border-hasher-blue hover:border-hasher-blue' 
+                className='border-2 border-hasher-gray h-14 outline-none p-2 rounded w-full focus:border-hasher-blue hover:border-hasher-blue' 
                 type='text'
                 ref={(input) => inputRef = input as HTMLInputElement}
                 placeholder='Type here...'
