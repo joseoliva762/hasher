@@ -1,5 +1,38 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@pages/*": [
+        "pages/*"
+      ],
+      "@components/*": [
+        "components/*"
+      ],
+      "@containers/*": [
+        "containers/*"
+      ],
+      "@icons/*": [
+        "public/icons/*"
+      ],
+      "@logos/*": [
+        "public/logos/*"
+      ],
+      "@content/*": [
+        "content/*"
+      ],
+      "@styles/*": [
+        "styles/*"
+      ],
+      "@models/*": [
+        "models/*"
+      ],
+      "@contexts/*": [
+        "contexts/*"
+      ],
+      "@hooks/*": [
+        "hooks/*"
+      ]
+    },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
