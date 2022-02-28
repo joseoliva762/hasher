@@ -22,11 +22,12 @@ export default function PasteSalt() {
                         Salt
                     </p>
                 <input
-                    className="font-bold bg-white h-full outline-none w-full" 
+                    className="font-bold bg-white h-full outline-none w-full read-only:cursor-not-allowed" 
                     type="text"
                     placeholder="Prxvw0BbvT8q8dtQ"
                     ref={(input) => inputRef = input as HTMLInputElement}
                     onChange={handleSalt}
+                    readOnly={!!state.crypted}
                 />
             </div>
         </>
