@@ -1,4 +1,4 @@
-import { StateContext } from "@models/State.model";
+import { StateContext } from "@models/state.model";
 import { useState } from "react";
 
 const initialState = {
