@@ -2,6 +2,7 @@ import { Fragment, ReactNode } from "react";
 import { Menu, Transition } from '@headlessui/react'
 import Title from "@components/Title";
 import HamburgerIcon from '@icons/HamburgerIcon';
+import Link from "next/link";
 
 interface MenuButtonParams {
     active: boolean,
@@ -9,7 +10,6 @@ interface MenuButtonParams {
 }
 
 const MenuButton = ({ active, children}: MenuButtonParams) => {
-    console.log(active)
     return (
         <>
             <button
@@ -29,7 +29,9 @@ export default function Header() {
     return (
         <>
             <header className="bg-white border-b-2 border-hasher-gray flex gap-1 h-14 items-center justify-between p-3 sticky top-0 w-full z-30 md:max-w-md">
-                <Title title='Hasher' classname='px-2 text-left w-full' />
+                {/* <Link href={'/'}> */}
+                    <Title title='Hasher' classname='px-2 text-left w-full' />
+                {/* </Link> */}
                 <Menu as='div' className='ml-3'>
                     <div className='flex items-center justify-center h-10 '>
                         <Menu.Button className='flex items-center p-2 text-sm rounded hover:bg-hasher-hover hover:opacity-80'>
@@ -45,29 +47,38 @@ export default function Header() {
                         leave='transition ease-in duration-75'
                         leaveFrom='opacity-100 scale-100'
                         leaveTo='opacity-0 scale-95'>
-                        <Menu.Items className='absolute bg-white border-2 border-hasher-gray flex flex-col gap-2 p-2 right-0 rounded top-16 w-full z-30 focus:outline-none md:max-w-md'>
+                        <Menu.Items className='absolute bg-white border-2 border-hasher-gray flex flex-col gap-2 p-2 right-0 top-16 w-full z-30 focus:outline-none md:max-w-md md:rounded'>
                             <Menu.Item>
                                 {({ active }) => (
-                                    <button
+                                   <div
                                         className={`${ active 
-                                            ? 'bg-hasher-blue text-white' 
+                                            ? 'bg-hasher-blue cursor-pointer text-white' 
                                             : '' 
                                             } flex gap-2 h-14 rounded items-center w-full px-4 py-2 text-md font-bold`
                                         }>
-                                        Crypt
-                                   </button> 
+                                        <Link href={'/'}>
+                                            <p className="flex h-full items-center justify-center text-center w-full">
+                                                Crypt
+                                            </p>
+                                        </Link> 
+                                    </div>
+
                                 )}
                             </Menu.Item>
                             <Menu.Item>
                                 {({ active }) => (
-                                    <button
+                                    <div
                                         className={`${ active 
-                                            ? 'bg-hasher-blue text-white' 
+                                            ? 'bg-hasher-blue cursor-pointer text-white' 
                                             : '' 
                                             } flex gap-2 h-14 rounded items-center w-full px-4 py-2 text-md font-bold`
                                         }>
-                                        Decrypt
-                                   </button> 
+                                        <Link href={'/decrypt'}>
+                                            <p className="flex h-full items-center justify-center text-center w-full">
+                                                Decrypt
+                                            </p>
+                                        </Link> 
+                                   </div> 
                                 )}
                             </Menu.Item>
                         </Menu.Items>

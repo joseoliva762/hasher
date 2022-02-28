@@ -21,8 +21,13 @@ const useBcrypt = (): Bcrypted => {
 
     const decode = (): void => {
         const { crypted, salt } = state;
-        const text = AES.decrypt(crypted, salt).toString(enc.Utf8);
-        setDecoded(text);
+        if (!crypted || !salt) return;
+        try {
+            const text = AES.decrypt(crypted, salt).toString(enc.Utf8);
+            setDecoded(text);
+        } catch (err) {
+            console.error(err);
+        }
     }
 
     const generateSalt = (): void => {
@@ -36,6 +41,7 @@ const useBcrypt = (): Bcrypted => {
     return {
         crypted: state.crypted,
         encode,
+        decode,
         generateSalt
     }
 }

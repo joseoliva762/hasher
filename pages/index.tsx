@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 
@@ -11,7 +11,9 @@ import SubTitle from '@components/Subtitle';
 import Result from '@components/Result';
 
 const Home: NextPage = () => {
-  const { state } = useContext(AppContext);
+  const { state, setSalt } = useContext(AppContext);
+  const canEncode = state.salt && state.saltRounds
+
   return (
     <>
       <Head>
@@ -19,11 +21,11 @@ const Home: NextPage = () => {
       </Head>
       <Container> 
         <Salt />
-        {state.salt && <>
+        {!!canEncode && <>
           <SubTitle subtitle='Type to encode' classname='mt-4 px-2 w-full' />
           <Input />
           <SubTitle subtitle='Encoded' classname='mt-4 px-2 w-full' />
-          <Result />        
+          <Result show='crypted' />        
         </>}
       </Container>
 

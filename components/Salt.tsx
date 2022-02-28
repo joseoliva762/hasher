@@ -1,7 +1,7 @@
 import AppContext from "@contexts/AppContext";
 import useBcrypt from "@hooks/useBcrypt";
 import useCopyToClipboard from "@hooks/useCopyToClipboard";
-import { ChangeEvent, ReactNode, useContext } from "react";
+import { ChangeEvent, ReactNode, useContext, useEffect } from "react";
 
 const MAXSALT = 131072;
 
@@ -24,6 +24,10 @@ export default function Salt() {
     const { generateSalt } = useBcrypt();
     const { handleCopy } = useCopyToClipboard();
     let inputRef!: HTMLInputElement;
+
+    useEffect(() => {
+        inputRef.value = `${state.saltRounds}`;
+    }, []);
 
     const handleSaltRounds = ({ target }: ChangeEvent<HTMLInputElement>) => {
         let rounds = parseInt(target.value) || 16;
@@ -65,11 +69,11 @@ export default function Salt() {
                         Salt
                     </button>
                 </SaltContent>
-                { state.salt && <>
+                { !!state.salt && !!state.saltRounds && <>
                     <SaltContent>
                         <div className="bg-white border-2 border-hasher-blue flex gap-2 h-full items-center justify-start p-2 relative rounded w-full">
                             <p className="cursor-default font-bold text-hasher-gray text-base">Salt</p>
-                            <p className="font-bold max-w-hasher-elipsis overflow-hidden text-black text-base text-ellipsis w-full">{state.salt}</p>
+                            <p className="font-bold max-w-hasher-elipsis overflow-hidden text-black text-base text-ellipsis whitespace-nowrap w-full">{state.salt}</p>
                             <button 
                                 className="absolute bg-transparent font-bold inset-0 h-full outline-none text-base text-transparent w-full hover:bg-hasher-blue hover:text-white active:brightness-90"
                                 onClick={() => handleCopy(state.salt)}>
