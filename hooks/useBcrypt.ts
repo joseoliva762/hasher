@@ -24,7 +24,7 @@ const useBcrypt = (): Bcrypted => {
         if (!crypted || !salt) return;
         try {
             const text = AES.decrypt(crypted, salt).toString(enc.Utf8);
-            setDecoded(text);
+            setDecoded(crypted ? text : '');
         } catch (err) {
             console.error(err);
         }

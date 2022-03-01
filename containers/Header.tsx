@@ -1,8 +1,9 @@
-import { Fragment, ReactNode } from "react";
+import { Fragment, ReactNode, useContext } from "react";
 import { Menu, Transition } from '@headlessui/react'
 import Title from "@components/Title";
 import HamburgerIcon from '@icons/HamburgerIcon';
 import Link from "next/link";
+import AppContext from "@contexts/AppContext";
 
 interface MenuButtonParams {
     active: boolean,
@@ -25,6 +26,7 @@ const MenuButton = ({ active, children}: MenuButtonParams) => {
 }
 
 export default function Header() {
+    const { clearState } = useContext(AppContext);
 
     return (
         <>
@@ -78,6 +80,21 @@ export default function Header() {
                                                 Decode
                                             </p>
                                         </Link> 
+                                   </div> 
+                                )}
+                            </Menu.Item>
+                            <Menu.Item>
+                                {({ active }) => (
+                                    <div
+                                        className={`${ active 
+                                            ? 'bg-hasher-danger cursor-pointer text-white' 
+                                            : '' 
+                                            } flex gap-2 h-14 rounded items-center w-full px-4 py-2 text-md font-bold`
+                                        }
+                                        onClick={clearState}>
+                                        <p className="flex h-full items-center justify-center text-center w-full">
+                                            Clean
+                                        </p>
                                    </div> 
                                 )}
                             </Menu.Item>

@@ -1,13 +1,16 @@
 import { useContext, useEffect } from "react";
-import Subtitle from "@components/Subtitle";
 import AppContext from "@contexts/AppContext";
 
 export default function PasteSalt() {
     const { state, setSalt } = useContext(AppContext);
     let inputRef!: HTMLInputElement ;
+    
     useEffect(() => {
         inputRef.value = state.salt;
-    }, [])
+    }, []);
+    useEffect(() => {
+        inputRef.value = state.salt;
+    }, [state.salt]);
 
     const handleFocus = () => inputRef.focus();
     const handleSalt = () => setSalt(`${inputRef.value}`);

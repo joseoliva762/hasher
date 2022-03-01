@@ -9,7 +9,8 @@ module.exports = {
       colors: {
         'hasher-blue': '#0070f3',
         'hasher-gray': '#bbbbbb',
-        'hasher-hover': '#dadada'
+        'hasher-hover': '#dadada',
+        'hasher-danger': '#ee0000'
       },
       maxWidth: {
         'hasher-elipsis': '240px',

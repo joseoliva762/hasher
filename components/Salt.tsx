@@ -29,6 +29,10 @@ export default function Salt() {
         inputRef.value = `${state.saltRounds}`;
     }, []);
 
+    useEffect(() => {
+        inputRef.value = state.saltRounds.toString();
+    }, [state.saltRounds]);
+
     const handleSaltRounds = ({ target }: ChangeEvent<HTMLInputElement>) => {
         let rounds = parseInt(target.value) || 16;
         if (rounds > MAXSALT) {
@@ -64,7 +68,7 @@ export default function Salt() {
                     </div>
                     <button 
                         className="bg-hasher-blue cursor-pointer font-bold text-base h-full rounded text-white w-40 z-0 hover:opacity-80 disabled:cursor-not-allowed disabled:opacity-80 active:brightness-90"
-                        disabled={!state.saltRounds || !!state.decoded}
+                        disabled={!state.saltRounds || (!!state.decoded && !!state.salt)}
                         onClick={generateSalt}>
                         Salt
                     </button>

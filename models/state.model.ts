@@ -13,6 +13,7 @@ export interface StateContext {
     setDecoded: (decoded: string) => void,
     setSalt: (salt: string) => void,
     setSaltRounds: (saltRounds: number) => void,
-    setCrypted: (crypted: string) => void
-    setBase: (base: string) => void
+    setCrypted: (crypted: string) => void,
+    setBase: (base: string) => void,
+    clearState: () => void
 }
